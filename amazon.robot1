@@ -1,0 +1,20 @@
+*** Settings ***
+Documentation  This is some basic info about the whole suite
+Library  SeleniumLibrary
+# Copy/paste the line below into the Terminal to run the script
+# pybot -d results tests/amazon.robot
+*** Variables ***
+${Browser}  chrome
+*** Test Cases ***
+User must sing in to check out
+    [Documentation]  This is some basic info about the test
+    [Tags]  Smoke
+    open browser  https://www.amazon.com  chrome
+
+    Input text   id=twotabsearchtextbox  Ferrari 458
+    Click Button  xpath=//*[@id="nav-search"]/form/div[2]/div/input
+
+    Click Link  xpath=//*[@id="search"]/div[1]/div/div[1]/div/span[3]/div[2]/div[2]/div/span/div/div/div[2]/h2/a
+
+
+    Close Browser
